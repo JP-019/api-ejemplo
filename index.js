@@ -12,10 +12,14 @@ app.use(express.json());
 // Rutas principales
 app.use("/api", routes);
 
-app.get("/", (req, res) => {
-  res.send("✅ Servidor funcionando correctamente");
-});
+try {
+  app.get("/", (req, res) => {
+    res.send(" Servidor funcionando correctamente");
+  });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor iniciado en http://localhost:${PORT}`);
-});
+  app.listen(PORT, () => {
+    console.log(`Servidor iniciado en http://localhost:${PORT}`);
+  });
+} catch (error) {
+  console.log(error);
+}
